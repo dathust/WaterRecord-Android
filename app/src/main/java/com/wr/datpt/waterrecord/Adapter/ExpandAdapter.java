@@ -23,9 +23,9 @@ public class ExpandAdapter extends BaseExpandableListAdapter {
     List<Area> areaList;
 
     List<String> listHeader;
-    HashMap<String,List<String>> listChild;
+    HashMap<String,List<Area>> listChild;
 
-    public ExpandAdapter (Context context, List<String> listHeader,HashMap<String,List<String>> listChild) {
+    public ExpandAdapter (Context context, List<String> listHeader,HashMap<String,List<Area>> listChild) {
         this.context = context;
         this.listHeader = listHeader;
         this.listChild = listChild;
@@ -48,7 +48,7 @@ public class ExpandAdapter extends BaseExpandableListAdapter {
 
     @Override
     public Object getChild(int groupPosition, int childPosition) {
-        return listChild.get(listHeader.get(groupPosition)).get(childPosition);
+        return listChild.get(listHeader.get(groupPosition)).get(childPosition).getTenTram();
     }
 
     @Override

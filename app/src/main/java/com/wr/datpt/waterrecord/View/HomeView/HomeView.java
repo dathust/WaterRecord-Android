@@ -36,7 +36,7 @@ public class HomeView extends AppCompatActivity implements ViewXuLyMenu{
     ActionBarDrawerToggle actionBarDrawerToggle;
     ExpandableListView expandableListView;
     List<String> listHeader;
-    HashMap<String,List<String>> listChild;
+    HashMap<String,List<Area>> listChild;
     ExpandAdapter expandAdapter;
 
     @Override
@@ -48,7 +48,7 @@ public class HomeView extends AppCompatActivity implements ViewXuLyMenu{
         drawerLayout = findViewById(R.id.drawerLayout);
         tabLayout = findViewById(R.id.tabs);
         viewPager = findViewById(R.id.viewpager);
-        //expandableListView = findViewById(R.id.epMenu);
+        expandableListView = findViewById(R.id.epMenu);
 
         toolbar.setTitle("");
         setSupportActionBar(toolbar);
@@ -64,9 +64,9 @@ public class HomeView extends AppCompatActivity implements ViewXuLyMenu{
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         actionBarDrawerToggle.syncState();
 
-        addControl();
-        expandAdapter = new ExpandAdapter(HomeView.this,listHeader,listChild);
-        expandableListView.setAdapter(expandAdapter);
+//        addControl();
+//        expandAdapter = new ExpandAdapter(HomeView.this,listHeader,listChild);
+//        expandableListView.setAdapter(expandAdapter);
 
         PresenterLogicXuLyMenu presenterLogicXuLyMenu = new PresenterLogicXuLyMenu(this);
         presenterLogicXuLyMenu.LayDanhSachMenu();
@@ -92,6 +92,16 @@ public class HomeView extends AppCompatActivity implements ViewXuLyMenu{
 
     @Override
     public void HientThiDanhSachMenu(List<Area> areaList) {
+        listHeader = new ArrayList<>();
+        listHeader.add("Trạm");
+        listChild = new HashMap<String,List<Area>>();
+        listChild.put(listHeader.get(0),areaList);
+        
+        ExpandAdapter expandAdapter = new ExpandAdapter(this,listHeader,listChild);
+
+        expandableListView.setAdapter(expandAdapter);
+
+        expandAdapter.notifyDataSetChanged();
 //        expandableListView = findViewById(R.id.epMenu);
 //
 //        List<String> listHeader = new ArrayList<>();
@@ -114,25 +124,25 @@ public class HomeView extends AppCompatActivity implements ViewXuLyMenu{
         Log.d("check1",areaList.get(0).getDiaChi().toString());
     }
     public void addControl(){
-        expandableListView = findViewById(R.id.epMenu);
-
-        listHeader = new ArrayList<>();
-        listChild = new HashMap<String,List<String>>();
-
-        listHeader.add("Trạm");
-        listHeader.add("Nhân Viên");
-
-        List<String> tram = new ArrayList<>();
-        tram.add("Trạm 1");
-        tram.add("Trạm 2");
-        tram.add("Trạm 3");
-
-        List<String> nhanVien = new ArrayList<>();
-        nhanVien.add("Nhân viên ghi số");
-        nhanVien.add("Nhân viên hệ thống");
-
-        listChild.put(listHeader.get(0),tram);
-        listChild.put(listHeader.get(1),nhanVien);
+//        expandableListView = findViewById(R.id.epMenu);
+//
+//        listHeader = new ArrayList<>();
+//        listChild = new HashMap<String,List<String>>();
+//
+//        listHeader.add("Trạm");
+//        listHeader.add("Nhân Viên");
+//
+//        List<String> tram = new ArrayList<>();
+//        tram.add("Trạm 1");
+//        tram.add("Trạm 2");
+//        tram.add("Trạm 3");
+//
+//        List<String> nhanVien = new ArrayList<>();
+//        nhanVien.add("Nhân viên ghi số");
+//        nhanVien.add("Nhân viên hệ thống");
+//
+//        listChild.put(listHeader.get(0),tram);
+//        listChild.put(listHeader.get(1),nhanVien);
     }
 }
 
