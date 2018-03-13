@@ -30,17 +30,9 @@ public class XulyJSONMenu {
 
                 Area area = new Area();
 
-                area.setMaKhuVuc(value.getInt("maKhuVuc"));
-                area.setNguoiTao(value.getString("nguoiTao").toString());
-
-                area.setXoa(Byte.parseByte(value.getString("xoa")));
-                area.setDoi(value.getString("doi"));
-                area.setThon(value.getString("thon"));
-                area.setXa(value.getString("xa"));
-                area.setHuyen(value.getString("huyen"));
-                area.setTinh(value.getString("tinh"));
-                area.setChiTiet(value.getString("chiTiet"));
-                area.setGhiChu(value.getString("ghiChu"));
+                area.setMaTram(value.getInt("maTram"));
+                area.setTenTram(value.getString("tenTram"));
+                area.setDiaChi(value.getString("diaChi"));
 
                 areaList.add(area);
             }

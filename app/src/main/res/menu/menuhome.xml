@@ -3,10 +3,46 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
         android:id="@+id/idsearch"
-        android:title="Search"
+        android:title="Tìm kiếm"
         android:icon="@drawable/ic_search_white_24dp"
         app:showAsAction="always"
         android:visible="false"
         />
 
+    <item
+        android:icon="@drawable/ic_more_vert_white_24dp"
+        android:title="more"
+        app:showAsAction="always"
+        >
+
+        <menu>
+            <item
+                android:id="@+id/itDangNhap"
+                android:title="Đăng xuất"
+                android:icon="@drawable/ic_exit_to_app_black_24dp"
+
+                />
+            <item
+                android:id="@+id/itThongTin"
+                android:title="Thông tin"
+                android:icon="@drawable/ic_border_color_black_24dp"
+                />
+            <item
+                android:id="@+id/itGhiChu"
+                android:title="Ghi Chú"
+                android:icon="@drawable/ic_event_note_black_24dp"
+                />
+            <item
+                android:id="@+id/itQuyDinh"
+                android:title="Quy Định"
+                android:icon="@drawable/ic_description_black_24dp"
+                />
+            <item
+                android:id="@+id/itTroGiup"
+                android:title="Trợ Giúp"
+                android:icon="@drawable/ic_help_outline_black_24dp"
+                />
+        </menu>
+
+    </item>
 </menu>

@@ -5,6 +5,8 @@ import com.wr.datpt.waterrecord.Model.ObjectClass.Area;
 import com.wr.datpt.waterrecord.Model.TrangChu.Xulymenu.XulyJSONMenu;
 import com.wr.datpt.waterrecord.View.HomeView.ViewXuLyMenu;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.concurrent.ExecutionException;
 
@@ -24,8 +26,18 @@ public class PresenterLogicXuLyMenu implements IPresenterXuLyMenu {
 
         List<Area> areaList;
         String dataJSON="";
-        String duongdan = "http://192.168.0.103:8084/WaterRecord/AreaServlet";
+        List<HashMap<String,String>> attrs = new ArrayList<>();
+        //phương phức Get
+        String duongdan = "http://192.168.1.6:8084/WaterRecord/AreaServlet";
         DownloadJSON downloadJSON = new DownloadJSON(duongdan);
+        //end Get
+        //phương thức Post
+//        String duongdan = "http://192.168.1.4:8084/WaterRecord/AreaServlet";
+//        HashMap<String,String> hsParam = new HashMap<>();
+//        hsParam.put("Parameter","chỉ số");
+//        attrs.add(hsParam);
+//        DownloadJSON downloadJSON = new DownloadJSON(duongdan,attrs);
+        //end Post
         downloadJSON.execute();
         try {
             dataJSON = downloadJSON.get();

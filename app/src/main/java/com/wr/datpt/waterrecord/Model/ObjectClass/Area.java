@@ -8,110 +8,50 @@ import java.sql.Date;
 
 public class Area {
 
-    private int maKhuVuc;
-    private byte xoa;
-    private String  nguoiTao;
-    private String doi;
-    private String thon;
-    private String xa;
-    private String huyen;
-    private String tinh;
-    private String chiTiet;
-    private String ghiChu;
+    private int maTram;
+    private String  tenTram;
+    private String diaChi;
+    private int tongKH;
 
     public Area() {
     }
 
-    public Area(int maKhuVuc, byte xoa, String  nguoiTao, String doi, String thon, String xa, String huyen, String tinh, String chiTiet, String ghiChu) {
-        this.maKhuVuc = maKhuVuc;
-        this.xoa = xoa;
-        this.nguoiTao = nguoiTao;
-        this.doi = doi;
-        this.thon = thon;
-        this.xa = xa;
-        this.huyen = huyen;
-        this.tinh = tinh;
-        this.chiTiet = chiTiet;
-        this.ghiChu = ghiChu;
+    public Area(int maTram, String tenTram, String diaChi, int tongKH) {
+        this.maTram = maTram;
+        this.tenTram = tenTram;
+        this.diaChi = diaChi;
+        this.tongKH = tongKH;
     }
 
-    public int getMaKhuVuc() {
-        return maKhuVuc;
+    public int getMaTram() {
+        return maTram;
     }
 
-    public void setMaKhuVuc(int maKhuVuc) {
-        this.maKhuVuc = maKhuVuc;
+    public void setMaTram(int maTram) {
+        this.maTram = maTram;
     }
 
-    public byte getXoa() {
-        return xoa;
+    public String getTenTram() {
+        return tenTram;
     }
 
-    public void setXoa(byte xoa) {
-        this.xoa = xoa;
+    public void setTenTram(String tenTram) {
+        this.tenTram = tenTram;
     }
 
-    public String  getNguoiTao() {
-        return nguoiTao;
+    public String getDiaChi() {
+        return diaChi;
     }
 
-    public void setNguoiTao(String nguoiTao) {
-        this.nguoiTao = nguoiTao;
+    public void setDiaChi(String diaChi) {
+        this.diaChi = diaChi;
     }
 
-    public String getDoi() {
-        return doi;
+    public int getTongKH() {
+        return tongKH;
     }
 
-    public void setDoi(String doi) {
-        this.doi = doi;
-    }
-
-    public String getThon() {
-        return thon;
-    }
-
-    public void setThon(String thon) {
-        this.thon = thon;
-    }
-
-    public String getXa() {
-        return xa;
-    }
-
-    public void setXa(String xa) {
-        this.xa = xa;
-    }
-
-    public String getHuyen() {
-        return huyen;
-    }
-
-    public void setHuyen(String huyen) {
-        this.huyen = huyen;
-    }
-
-    public String getTinh() {
-        return tinh;
-    }
-
-    public void setTinh(String tinh) {
-        this.tinh = tinh;
-    }
-
-    public String getChiTiet() {
-        return chiTiet;
-    }
-
-    public void setChiTiet(String chiTiet) {
-        this.chiTiet = chiTiet;
-    }
-
-    public String getGhiChu() {
-        return ghiChu;
-    }
-
-    public void setGhiChu(String ghiChu) {
-        this.ghiChu = ghiChu;
+    public void setTongKH(int tongKH) {
+        this.tongKH = tongKH;
     }
 }

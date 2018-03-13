@@ -15,23 +15,32 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Hệ thống ghi số nước sạch"
+            android:text="Ghi số đồng hồ nước"
             android:textSize="30dp"
             android:textColor="#4c4c4c"
             android:paddingTop="80dp"
             android:layout_gravity="center"
             />
+
         <ImageView
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/startview1"
+            android:layout_height="405dp"
             android:layout_gravity="center"
-            android:paddingTop="60dp"
+            android:paddingBottom="50dp"
             android:paddingLeft="50dp"
             android:paddingRight="50dp"
+            android:paddingTop="60dp"
+            android:src="@drawable/startview1"
 
             />
-
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Phiên bản 1.0"
+            android:textSize="15dp"
+            android:textColor="#4c4c4c"
+            android:layout_gravity="center"
+            />
     </LinearLayout>
 
 
