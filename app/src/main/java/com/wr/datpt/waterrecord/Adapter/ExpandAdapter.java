@@ -1,13 +1,17 @@
 package com.wr.datpt.waterrecord.Adapter;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseExpandableListAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.wr.datpt.waterrecord.Model.ObjectClass.Area;
+import com.wr.datpt.waterrecord.Presenter.TrangChu.LayKhachHang.LayKhachHangKhuVuc;
 import com.wr.datpt.waterrecord.R;
 
 import java.util.HashMap;
@@ -23,9 +27,10 @@ public class ExpandAdapter extends BaseExpandableListAdapter {
     List<Area> areaList;
 
     List<String> listHeader;
-    HashMap<String,List<Area>> listChild;
+    HashMap<String,List<String>> listChild;
+    ViewHolderMenu viewHolderMenu;
 
-    public ExpandAdapter (Context context, List<String> listHeader,HashMap<String,List<Area>> listChild) {
+    public ExpandAdapter (Context context, List<String> listHeader,HashMap<String,List<String>> listChild) {
         this.context = context;
         this.listHeader = listHeader;
         this.listChild = listChild;
@@ -48,7 +53,7 @@ public class ExpandAdapter extends BaseExpandableListAdapter {
 
     @Override
     public Object getChild(int groupPosition, int childPosition) {
-        return listChild.get(listHeader.get(groupPosition)).get(childPosition).getTenTram();
+        return listChild.get(listHeader.get(groupPosition)).get(childPosition);
     }
 
     @Override
@@ -58,7 +63,12 @@ public class ExpandAdapter extends BaseExpandableListAdapter {
 
     @Override
     public long getChildId(int groupPosition, int childPosition) {
-        return childPosition;
+        return childPosition+1;
+    }
+
+    public class ViewHolderMenu{
+        TextView txtMaTram;
+        ImageView hinhMenu;
     }
 
     @Override
@@ -68,21 +78,50 @@ public class ExpandAdapter extends BaseExpandableListAdapter {
 
     @Override
     public View getGroupView(int groupPosition, boolean isExpanded, View convertView, ViewGroup viewGroup) {
+
+        if (convertView == null){
+            viewHolderMenu = new ViewHolderMenu();
+            LayoutInflater layoutInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+            convertView = layoutInflater.inflate(R.layout.layout_group,null);
+            viewHolderMenu.hinhMenu = convertView.findViewById(R.id.imMenu);
+            viewHolderMenu.txtMaTram = convertView.findViewById(R.id.txtGroup);
+            convertView.setTag(viewHolderMenu);
+        } else {
+            viewHolderMenu = (ViewHolderMenu) convertView.getTag();
+        }
         String headrttitle = (String) getGroup(groupPosition);
-        LayoutInflater layoutInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        convertView = layoutInflater.inflate(R.layout.layout_group,null);
-        TextView textView = convertView.findViewById(R.id.txtGroup);
-        textView.setText(headrttitle);
+        viewHolderMenu.txtMaTram.setText(headrttitle);
+        if (isExpanded){
+            viewHolderMenu.hinhMenu.setImageResource(R.drawable.ic_keyboard_arrow_down_black_24dp);
+        } else {
+            viewHolderMenu.hinhMenu.setImageResource(R.drawable.ic_keyboard_arrow_right_black_24dp);
+        }
         return convertView;
     }
 
     @Override
-    public View getChildView(int groupPosition, int childPosition, boolean isExpanded, View convertView, ViewGroup viewGroup) {
+    public View getChildView(final int groupPosition, final int childPosition, boolean isExpanded, View convertView, ViewGroup viewGroup) {
         String item = (String) getChild(groupPosition,childPosition);
         LayoutInflater layoutInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        final LayKhachHangKhuVuc layKhachHangKhuVuc = new LayKhachHangKhuVuc();
         convertView = layoutInflater.inflate(R.layout.layout_child,null);
         TextView textView = convertView.findViewById(R.id.txtChild);
         textView.setText(item);
+        convertView.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View view, MotionEvent motionEvent) {
+                Log.d("Textview:" , "Postion:" + getChildId(groupPosition,childPosition));
+                //
+                if("Trạm".equals(getGroup(groupPosition))){
+                    layKhachHangKhuVuc.LayKhachHangKhuVuc((int)getChildId(groupPosition,childPosition));
+                } else {
+                    Log.d("Staff","Danh sách nhân viên");
+                }
+
+                //
+                return false;
+            }
+        });
         return convertView;
     }
 

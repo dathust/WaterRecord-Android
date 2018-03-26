@@ -4,13 +4,10 @@
     android:orientation="horizontal"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-    <TextView
-        android:id="@+id/txtChild"
-        android:textSize="25dp"
-        android:text="Item"
-        android:layout_marginLeft="20dp"
+    <ListView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:cursorVisible="true"
-        />
+        android:id="@+id/listcustomer"
+        >
+    </ListView>
 </LinearLayout>

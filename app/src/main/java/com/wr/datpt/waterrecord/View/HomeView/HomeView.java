@@ -12,10 +12,14 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.support.v7.widget.Toolbar;
 import android.widget.ExpandableListView;
+import android.widget.ListView;
 
 import com.wr.datpt.waterrecord.Adapter.ExpandAdapter;
 import com.wr.datpt.waterrecord.Adapter.ViewPagerAdapter;
 import com.wr.datpt.waterrecord.Model.ObjectClass.Area;
+import com.wr.datpt.waterrecord.Model.ObjectClass.Customer;
+import com.wr.datpt.waterrecord.Presenter.TrangChu.LayKhachHang.LayKhachHangKhuVuc;
+import com.wr.datpt.waterrecord.Presenter.TrangChu.LayKhachHang.LayKhachHangKhuVucItf;
 import com.wr.datpt.waterrecord.Presenter.TrangChu.XuLyMenu.PresenterLogicXuLyMenu;
 import com.wr.datpt.waterrecord.R;
 
@@ -35,8 +39,9 @@ public class HomeView extends AppCompatActivity implements ViewXuLyMenu{
     DrawerLayout drawerLayout;
     ActionBarDrawerToggle actionBarDrawerToggle;
     ExpandableListView expandableListView;
+    ListView listView;
     List<String> listHeader;
-    HashMap<String,List<Area>> listChild;
+    HashMap<String,List<String>> listChild;
     ExpandAdapter expandAdapter;
 
     @Override
@@ -49,6 +54,7 @@ public class HomeView extends AppCompatActivity implements ViewXuLyMenu{
         tabLayout = findViewById(R.id.tabs);
         viewPager = findViewById(R.id.viewpager);
         expandableListView = findViewById(R.id.epMenu);
+        listView = findViewById(R.id.listcustomer);
 
         toolbar.setTitle("");
         setSupportActionBar(toolbar);
@@ -64,12 +70,12 @@ public class HomeView extends AppCompatActivity implements ViewXuLyMenu{
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         actionBarDrawerToggle.syncState();
 
-//        addControl();
-//        expandAdapter = new ExpandAdapter(HomeView.this,listHeader,listChild);
-//        expandableListView.setAdapter(expandAdapter);
 
         PresenterLogicXuLyMenu presenterLogicXuLyMenu = new PresenterLogicXuLyMenu(this);
         presenterLogicXuLyMenu.LayDanhSachMenu();
+
+        LayKhachHangKhuVuc layKhachHangKhuVuc = new LayKhachHangKhuVuc(this);
+        layKhachHangKhuVuc.LayKhachHangKhuVuc();
 
     }
 
@@ -94,55 +100,29 @@ public class HomeView extends AppCompatActivity implements ViewXuLyMenu{
     public void HientThiDanhSachMenu(List<Area> areaList) {
         listHeader = new ArrayList<>();
         listHeader.add("Trạm");
-        listChild = new HashMap<String,List<Area>>();
-        listChild.put(listHeader.get(0),areaList);
-        
-        ExpandAdapter expandAdapter = new ExpandAdapter(this,listHeader,listChild);
+        listHeader.add("Nhân Viên");
+        listChild = new HashMap<String,List<String>>();
 
+        List<String> listTram = new ArrayList<>();
+        int countList = areaList.size();
+        for (int i=0; i<countList;i++){
+            listTram.add(areaList.get(i).getTenTram());
+        }
+        List<String> listNV = new ArrayList<>();
+        listNV.add("Nhân viên ghi số");
+        listNV.add("Nhân viên hệ thống");
+
+        listChild.put(listHeader.get(0),listTram);
+        listChild.put(listHeader.get(1), listNV);
+        expandAdapter = new ExpandAdapter(this,listHeader,listChild);
         expandableListView.setAdapter(expandAdapter);
-
         expandAdapter.notifyDataSetChanged();
-//        expandableListView = findViewById(R.id.epMenu);
-//
-//        List<String> listHeader = new ArrayList<>();
-//        HashMap<String,List<String>> listChild = new HashMap<>();
-//
-//        listHeader.add("Trạm");
-//        listHeader.add("Nhân Viên");
-//
-//        List<String> tram = new ArrayList<>();
-//        tram.add("Trạm 1");
-//        tram.add("Trạm 2");
-//        tram.add("Trạm 3");
-//
-//        List<String> nhanVien = new ArrayList<>();
-//        nhanVien.add("Nhân viên ghi số");
-//        nhanVien.add("Nhân viên hệ thống");
-//
-//        listChild.put(listHeader.get(0),tram);
-//        listChild.put(listHeader.get(1),nhanVien);
-        Log.d("check1",areaList.get(0).getDiaChi().toString());
+
     }
-    public void addControl(){
-//        expandableListView = findViewById(R.id.epMenu);
-//
-//        listHeader = new ArrayList<>();
-//        listChild = new HashMap<String,List<String>>();
-//
-//        listHeader.add("Trạm");
-//        listHeader.add("Nhân Viên");
-//
-//        List<String> tram = new ArrayList<>();
-//        tram.add("Trạm 1");
-//        tram.add("Trạm 2");
-//        tram.add("Trạm 3");
-//
-//        List<String> nhanVien = new ArrayList<>();
-//        nhanVien.add("Nhân viên ghi số");
-//        nhanVien.add("Nhân viên hệ thống");
-//
-//        listChild.put(listHeader.get(0),tram);
-//        listChild.put(listHeader.get(1),nhanVien);
+
+    @Override
+    public void HienThiDanhSachKhachHangKhuVuc(List<Customer> customerList) {
+        //Log.d("check1",customerList.get(0).getDiaChi().toString());
     }
 }
 

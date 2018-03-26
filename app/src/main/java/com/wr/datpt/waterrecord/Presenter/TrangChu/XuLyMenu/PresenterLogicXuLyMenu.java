@@ -28,7 +28,7 @@ public class PresenterLogicXuLyMenu implements IPresenterXuLyMenu {
         String dataJSON="";
         List<HashMap<String,String>> attrs = new ArrayList<>();
         //phương phức Get
-        String duongdan = "http://192.168.1.6:8084/WaterRecord/AreaServlet";
+        String duongdan = "http://192.168.43.119:8084/WaterRecord/AreaServlet";
         DownloadJSON downloadJSON = new DownloadJSON(duongdan);
         //end Get
         //phương thức Post

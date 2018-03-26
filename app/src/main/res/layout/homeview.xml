@@ -34,7 +34,7 @@
                         android:id="@+id/toolbar"
                         android:layout_width="match_parent"
                         android:layout_height="?attr/actionBarSize"
-                        app:logo="@mipmap/logo"
+                        app:logo="@mipmap/ic_top"
                         android:theme="@style/menuitemcolor"
                         />
 
@@ -49,7 +49,9 @@
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:drawableLeft="@drawable/ic_search_black_24dp"
-                            android:text="Search"
+                            android:text="Tìm kiếm"
+                            android:textAllCaps="false"
+                            android:textColor="#3e3e3e"
                             android:layout_gravity="start"
                             android:textAlignment="viewStart"
                             android:layout_weight="1"
@@ -82,12 +84,13 @@
     <ExpandableListView
         android:id="@+id/epMenu"
         android:listSelector="#31b1b1b6"
+        android:choiceMode="multipleChoice"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_gravity="start"
         android:background="@color/colorWhite"
+        android:groupIndicator="@null"
         >
-
     </ExpandableListView>
 
 </android.support.v4.widget.DrawerLayout>

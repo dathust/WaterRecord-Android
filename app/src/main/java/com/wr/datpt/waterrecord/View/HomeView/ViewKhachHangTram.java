@@ -1,15 +1,13 @@
 package com.wr.datpt.waterrecord.View.HomeView;
 
-import com.wr.datpt.waterrecord.Model.ObjectClass.Area;
 import com.wr.datpt.waterrecord.Model.ObjectClass.Customer;
 
 import java.util.List;
 
 /**
- * Created by DatPT on 11/02/2018.
+ * Created by DatPT on 25/03/2018.
  */
 
-public interface ViewXuLyMenu {
-    void HientThiDanhSachMenu(List<Area> areaList);
+public interface ViewKhachHangTram {
     void HienThiDanhSachKhachHangKhuVuc(List<Customer> customerList);
 }
