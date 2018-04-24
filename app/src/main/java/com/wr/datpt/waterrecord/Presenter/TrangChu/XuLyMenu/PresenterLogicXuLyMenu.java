@@ -3,6 +3,7 @@ package com.wr.datpt.waterrecord.Presenter.TrangChu.XuLyMenu;
 import com.wr.datpt.waterrecord.ConnectInternet.DownloadJSON;
 import com.wr.datpt.waterrecord.Model.ObjectClass.Area;
 import com.wr.datpt.waterrecord.Model.TrangChu.Xulymenu.XulyJSONMenu;
+import com.wr.datpt.waterrecord.View.HomeView.HomeView;
 import com.wr.datpt.waterrecord.View.HomeView.ViewXuLyMenu;
 
 import java.util.ArrayList;
@@ -28,15 +29,15 @@ public class PresenterLogicXuLyMenu implements IPresenterXuLyMenu {
         String dataJSON="";
         List<HashMap<String,String>> attrs = new ArrayList<>();
         //phương phức Get
-        String duongdan = "http://192.168.43.119:8084/WaterRecord/AreaServlet";
-        DownloadJSON downloadJSON = new DownloadJSON(duongdan);
+//        String duongdan = HomeView.SEVER_NAME;
+//        DownloadJSON downloadJSON = new DownloadJSON(duongdan);
         //end Get
         //phương thức Post
-//        String duongdan = "http://192.168.1.4:8084/WaterRecord/AreaServlet";
-//        HashMap<String,String> hsParam = new HashMap<>();
-//        hsParam.put("Parameter","chỉ số");
-//        attrs.add(hsParam);
-//        DownloadJSON downloadJSON = new DownloadJSON(duongdan,attrs);
+        String duongdan = HomeView.SEVER_NAME;
+        HashMap<String,String> hsParam = new HashMap<>();
+        hsParam.put("ham","LayDanhSackTram");
+        attrs.add(hsParam);
+        DownloadJSON downloadJSON = new DownloadJSON(duongdan,attrs);
         //end Post
         downloadJSON.execute();
         try {

@@ -1,6 +1,7 @@
 package com.wr.datpt.waterrecord.Adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
@@ -11,8 +12,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.wr.datpt.waterrecord.Model.ObjectClass.Area;
-import com.wr.datpt.waterrecord.Presenter.TrangChu.LayKhachHang.LayKhachHangKhuVuc;
+
 import com.wr.datpt.waterrecord.R;
+import com.wr.datpt.waterrecord.View.HomeView.Fragment.FragmentCustomer;
+import com.wr.datpt.waterrecord.View.KhachHangTheoTram.HienThiKhachHangTheoTramActivity;
 
 import java.util.HashMap;
 import java.util.List;
@@ -103,17 +106,20 @@ public class ExpandAdapter extends BaseExpandableListAdapter {
     public View getChildView(final int groupPosition, final int childPosition, boolean isExpanded, View convertView, ViewGroup viewGroup) {
         String item = (String) getChild(groupPosition,childPosition);
         LayoutInflater layoutInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        final LayKhachHangKhuVuc layKhachHangKhuVuc = new LayKhachHangKhuVuc();
+
         convertView = layoutInflater.inflate(R.layout.layout_child,null);
         TextView textView = convertView.findViewById(R.id.txtChild);
         textView.setText(item);
         convertView.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View view, MotionEvent motionEvent) {
+                int  maTram = (int) getChildId(groupPosition,childPosition);
                 Log.d("Textview:" , "Postion:" + getChildId(groupPosition,childPosition));
                 //
                 if("Trạm".equals(getGroup(groupPosition))){
-                    layKhachHangKhuVuc.LayKhachHangKhuVuc((int)getChildId(groupPosition,childPosition));
+                    Intent iHienThiKhachHangTram = new Intent(context, HienThiKhachHangTheoTramActivity.class);
+                    iHienThiKhachHangTram.putExtra("maTram",maTram);
+                    context.startActivity(iHienThiKhachHangTram);
                 } else {
                     Log.d("Staff","Danh sách nhân viên");
                 }

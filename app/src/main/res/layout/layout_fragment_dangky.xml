@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+    <LinearLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="10dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Điền đủ các mục"
+            android:textStyle="bold"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            />
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/input_edHoTenDK"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:textColorHint="#000">
+
+            <EditText
+                android:id="@+id/edHoTenDK"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Họ tên"
+                android:textColor="#000"
+                android:inputType="textPersonName"
+
+                />
+        </android.support.design.widget.TextInputLayout>
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/input_SDTDK"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:textColorHint="#000">
+
+            <EditText
+                android:id="@+id/edSDTDK"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Sô điện thoại"
+                android:textColor="#000"
+                android:inputType="phone"
+                />
+        </android.support.design.widget.TextInputLayout>
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/input_DiaChiDK"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:textColorHint="#000">
+
+            <EditText
+                android:id="@+id/edDiaChiDK"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Địa chỉ"
+                android:textColor="#000"
+                android:inputType="textPostalAddress"
+                />
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/input_edTaiKhoanDK"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:textColorHint="#000">
+
+            <EditText
+                android:id="@+id/edTaiKhoanDK"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Tài khoản"
+                android:textColor="#000"
+                android:inputType="textPersonName"
+
+                />
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/input_MatKhauDK"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:textColorHint="#000">
+
+            <EditText
+                android:id="@+id/edMatKhauDK"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Mật khẩu"
+                android:textColor="#000"
+                android:inputType="textPassword"
+                />
+        </android.support.design.widget.TextInputLayout>
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/input_NhapLaiMatKhauDK"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:textColorHint="#000">
+
+            <EditText
+                android:id="@+id/edNhapLaiMatKhauDK"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Mật khẩu"
+                android:textColor="#000"
+                android:inputType="textPassword"
+                />
+        </android.support.design.widget.TextInputLayout>
+        <Button
+            android:id="@+id/btnDangKy"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="ĐĂNG KÝ"
+            android:background="@color/colorPrimaryDark"
+
+            />
+    </LinearLayout>
+</android.support.v4.widget.NestedScrollView>

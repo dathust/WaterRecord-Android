@@ -6,7 +6,7 @@
     android:layout_height="match_parent">
     <TextView
         android:id="@+id/txtChild"
-        android:textSize="25dp"
+        android:textSize="30dp"
         android:text="Item"
         android:layout_marginLeft="20dp"
         android:layout_width="match_parent"

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="10dp"
+    android:orientation="horizontal"
+    android:id="@+id/idCustomer"
+    android:padding="10dp">
+
+    <ImageView
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:src="@drawable/ic_person_black_36dp" />
+
+    <LinearLayout
+
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/txtName"
+            android:layout_width="fill_parent"
+            android:layout_height="25dp"
+            android:gravity="center_vertical"
+            android:text="Ten"
+            android:textColor="#000"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/txtPhone"
+
+            android:layout_width="fill_parent"
+            android:layout_height="25dp"
+            android:gravity="center_vertical"
+            android:text="0123" />
+
+        <TextView
+            android:id="@+id/txtAddress"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:text="Đội 1" />
+
+    </LinearLayout>
+</LinearLayout>

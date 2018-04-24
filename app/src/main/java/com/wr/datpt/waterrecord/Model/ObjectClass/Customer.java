@@ -9,7 +9,7 @@ public class Customer {
     private String tenKhachHang;
     private String tenKhac;
     private String diaChi;
-    private int dienThoai;
+    private String  dienThoai;
     private String maSoThue;
     private int maSoDongHo;
     private int maBangGia;
@@ -17,12 +17,15 @@ public class Customer {
     private int tongChiSo;
     private float toaDoX;
     private float getToaDoY;
+    private int trangThai;
     private String ghiChu;
+    private int chiSoThangNay;
+    private int chiSoThangTruoc;
 
     public Customer() {
     }
 
-    public Customer(int maKhachHang, String tenKhachHang, String tenKhac, String diaChi, int dienThoai, String maSoThue, int maSoDongHo, int maBangGia, int maTram, int tongChiSo, float toaDoX, float getToaDoY, String ghiChu) {
+    public Customer(int maKhachHang, String tenKhachHang, String tenKhac, String diaChi, String dienThoai, String maSoThue, int maSoDongHo, int maBangGia, int maTram, int tongChiSo, float toaDoX, float getToaDoY, int trangThai, String ghiChu, int chiSoThangNay, int chiSoThangTruoc) {
         this.maKhachHang = maKhachHang;
         this.tenKhachHang = tenKhachHang;
         this.tenKhac = tenKhac;
@@ -35,7 +38,10 @@ public class Customer {
         this.tongChiSo = tongChiSo;
         this.toaDoX = toaDoX;
         this.getToaDoY = getToaDoY;
+        this.trangThai = trangThai;
         this.ghiChu = ghiChu;
+        this.chiSoThangNay = chiSoThangNay;
+        this.chiSoThangTruoc = chiSoThangTruoc;
     }
 
     public int getMaKhachHang() {
@@ -70,11 +76,11 @@ public class Customer {
         this.diaChi = diaChi;
     }
 
-    public int getDienThoai() {
+    public String  getDienThoai() {
         return dienThoai;
     }
 
-    public void setDienThoai(int dienThoai) {
+    public void setDienThoai(String  dienThoai) {
         this.dienThoai = dienThoai;
     }
 
@@ -134,11 +140,35 @@ public class Customer {
         this.getToaDoY = getToaDoY;
     }
 
+    public int getTrangThai() {
+        return trangThai;
+    }
+
+    public void setTrangThai(int trangThai) {
+        this.trangThai = trangThai;
+    }
+
     public String getGhiChu() {
         return ghiChu;
     }
 
     public void setGhiChu(String ghiChu) {
         this.ghiChu = ghiChu;
+    }
+
+    public int getChiSoThangNay() {
+        return chiSoThangNay;
+    }
+
+    public void setChiSoThangNay(int chiSoThangNay) {
+        this.chiSoThangNay = chiSoThangNay;
+    }
+
+    public int getChiSoThangTruoc() {
+        return chiSoThangTruoc;
+    }
+
+    public void setChiSoThangTruoc(int chiSoThangTruoc) {
+        this.chiSoThangTruoc = chiSoThangTruoc;
     }
 }

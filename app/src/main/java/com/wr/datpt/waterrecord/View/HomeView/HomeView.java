@@ -1,7 +1,9 @@
 package com.wr.datpt.waterrecord.View.HomeView;
 
+import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
@@ -15,13 +17,15 @@ import android.widget.ExpandableListView;
 import android.widget.ListView;
 
 import com.wr.datpt.waterrecord.Adapter.ExpandAdapter;
+import com.wr.datpt.waterrecord.Adapter.TestCustomerAdapter;
 import com.wr.datpt.waterrecord.Adapter.ViewPagerAdapter;
+import com.wr.datpt.waterrecord.Model.DangNhap_DangKy.ModelDangNhap;
 import com.wr.datpt.waterrecord.Model.ObjectClass.Area;
 import com.wr.datpt.waterrecord.Model.ObjectClass.Customer;
-import com.wr.datpt.waterrecord.Presenter.TrangChu.LayKhachHang.LayKhachHangKhuVuc;
-import com.wr.datpt.waterrecord.Presenter.TrangChu.LayKhachHang.LayKhachHangKhuVucItf;
 import com.wr.datpt.waterrecord.Presenter.TrangChu.XuLyMenu.PresenterLogicXuLyMenu;
+import com.wr.datpt.waterrecord.Presenter.TrangChu.XuLyMenu.TestCustomer.TestCustomer;
 import com.wr.datpt.waterrecord.R;
+import com.wr.datpt.waterrecord.View.DangNhap_DangKy.DangNhapActivity;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -33,6 +37,7 @@ import java.util.List;
 
 public class HomeView extends AppCompatActivity implements ViewXuLyMenu{
 
+    public static final String SEVER_NAME = "http://192.168.1.46:8084/WaterRecord/AreaServlet";
     Toolbar toolbar;
     TabLayout tabLayout;
     ViewPager viewPager;
@@ -43,6 +48,12 @@ public class HomeView extends AppCompatActivity implements ViewXuLyMenu{
     List<String> listHeader;
     HashMap<String,List<String>> listChild;
     ExpandAdapter expandAdapter;
+    ModelDangNhap modelDangNhap;
+    Menu menu;
+    MenuItem itemDangNhap,menuITDangXuat;
+
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,6 +66,9 @@ public class HomeView extends AppCompatActivity implements ViewXuLyMenu{
         viewPager = findViewById(R.id.viewpager);
         expandableListView = findViewById(R.id.epMenu);
         listView = findViewById(R.id.listcustomer);
+
+
+
 
         toolbar.setTitle("");
         setSupportActionBar(toolbar);
@@ -74,9 +88,6 @@ public class HomeView extends AppCompatActivity implements ViewXuLyMenu{
         PresenterLogicXuLyMenu presenterLogicXuLyMenu = new PresenterLogicXuLyMenu(this);
         presenterLogicXuLyMenu.LayDanhSachMenu();
 
-        LayKhachHangKhuVuc layKhachHangKhuVuc = new LayKhachHangKhuVuc(this);
-        layKhachHangKhuVuc.LayKhachHangKhuVuc();
-
     }
 
 
@@ -84,14 +95,43 @@ public class HomeView extends AppCompatActivity implements ViewXuLyMenu{
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menuhome, menu);
+        this.menu = menu;
+        itemDangNhap = menu.findItem(R.id.itDangNhap);
+        menuITDangXuat = menu.findItem(R.id.itDangXuat);
+        modelDangNhap = new ModelDangNhap();
+        String  tennv = modelDangNhap.LayCachedDangNhap(this);
+        if(!tennv.equals("")){
+            itemDangNhap.setTitle(tennv);
+        }
+        if (!tennv.equals("")){
+            menuITDangXuat.setVisible(true);
+        }
         return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-
+        modelDangNhap = new ModelDangNhap();
+        String  tennv = modelDangNhap.LayCachedDangNhap(this);
         if (actionBarDrawerToggle.onOptionsItemSelected(item)) {
             return true;
+        }
+        int id = item.getItemId();
+        switch (id){
+            case R.id.itDangNhap:
+                if (tennv.equals("")) {
+                    Intent iDangNhap = new Intent(this, DangNhapActivity.class);
+                    startActivity(iDangNhap);
+                }
+                break;
+            case R.id.itDangXuat:
+                if(!tennv.equals("")){
+                    modelDangNhap.CapNhatCachedDangNhap(this,"","");
+                    this.menu.clear();
+                    this.onCreateOptionsMenu(this.menu);
+                    Intent iDangNhap = new Intent(this, DangNhapActivity.class);
+                    startActivity(iDangNhap);
+                }
         }
         return true;
     }

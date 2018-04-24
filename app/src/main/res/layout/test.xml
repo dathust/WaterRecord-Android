@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TableRow
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal" >
+            <TextView
+                android:text="Thông báo"
+                android:textStyle="bold"
+                android:textSize="25dp"
+                android:paddingTop="20dp"
+                android:gravity="center_horizontal"
+                />
+
+    </TableRow>
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center|fill_horizontal" >
+
+        <TextView
+            android:layout_width="80dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="Ghi số"
+            android:textColor="#000000" />
+
+        <TextView
+            android:layout_weight="1"
+            android:gravity="center"
+
+            android:text="Sửa chữa"
+            android:textColor="#000000" />
+    </TableRow>
+
+    <TableRow
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal">
+
+        <ImageView
+            android:layout_column="-1"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:src="@drawable/ic_create_black_36dp" />
+
+        <ImageView
+            android:layout_column="1"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:src="@drawable/ic_build_black_36dp" />
+    </TableRow>
+    <TableRow
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:paddingTop="15dp"
+        >
+        <TextView
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="Lắp đặt"
+            android:textColor="#000000" />
+
+        <TextView
+            android:layout_weight="1"
+            android:gravity="center"
+
+            android:text="Nội bộ"
+            android:textColor="#000000" />
+    </TableRow>
+    <TableRow
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal" >
+        <ImageView
+            android:layout_weight="1"
+            android:gravity="center"
+            android:src="@drawable/ic_gavel_black_36dp"
+            />
+        <ImageView
+            android:layout_weight="1"
+            android:gravity="center"
+            android:src="@drawable/ic_sms_black_36dp"
+            />
+    </TableRow>
+
+    <TableRow
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal" >
+        <TextView
+            android:text="Tin tức"
+            android:textStyle="bold"
+            android:paddingTop="20dp"
+            android:textSize="25dp"
+            android:gravity="center_horizontal"
+            />
+            />
+
+    </TableRow>
+    <TableRow
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal" >
+        <TextView
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="Công ty"
+            android:textColor="#000000" />
+
+        <TextView
+            android:layout_weight="1"
+            android:gravity="center"
+
+            android:text="Cập nhật"
+            android:textColor="#000000" />
+    </TableRow>
+    <TableRow
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:src="@drawable/ic_date_range_black_36dp" />
+        <ImageView
+            android:layout_weight="1"
+            android:gravity="center"
+            android:src="@drawable/ic_update_black_36dp"
+            />
+    </TableRow>
+    <TableRow
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal" >
+
+        <TextView
+
+            android:layout_weight="1"
+
+            android:gravity="center"
+
+
+            android:textColor="#000000" />
+
+        <TextView
+            android:id="@+id/tv32"
+            android:layout_weight="1"
+
+
+            android:text="Row 3 column 2"
+            android:textColor="#FFF" />
+    </TableRow>
+
+</TableLayout>

@@ -27,7 +27,7 @@ public class ViewPagerAdapter extends FragmentPagerAdapter{
         listFragment.add(new FragmentArea());
         listFragment.add(new FragmentCustomer());
 
-        titleFragment.add("Tin tức");
+        titleFragment.add("Thông báo");
         titleFragment.add("Trạm");
         titleFragment.add("Khách hàng");
     }

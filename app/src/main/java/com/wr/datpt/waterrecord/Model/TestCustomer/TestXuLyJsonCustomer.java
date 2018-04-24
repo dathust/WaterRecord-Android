@@ -1,6 +1,5 @@
-package com.wr.datpt.waterrecord.Model.TrangChu.XyLyKhachHang;
+package com.wr.datpt.waterrecord.Model.TestCustomer;
 
-import com.wr.datpt.waterrecord.Model.ObjectClass.Area;
 import com.wr.datpt.waterrecord.Model.ObjectClass.Customer;
 
 import org.json.JSONArray;
@@ -11,18 +10,18 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by DatPT on 25/03/2018.
+ * Created by DatPT on 17/04/2018.
  */
 
-public class XylyJSONKhachHang {
-    public List<Customer> ParseJSONKhachHang(String dulieujson) {
-        List<Customer> customerList = new ArrayList<>();
+public class TestXuLyJsonCustomer {
 
+    public List<Customer> customerList(String dulieujson){
+        List<Customer> list = new ArrayList<>();
         try {
             JSONObject jsonObject = new JSONObject(dulieujson);
             JSONArray listCustomer = jsonObject.getJSONArray("Customer");
             int count = listCustomer.length();
-            for (int i = 0; i < count; i++) {
+            for (int i =0; i<count; i++){
                 JSONObject value = listCustomer.getJSONObject(i);
 
                 Customer customer = new Customer();
@@ -31,7 +30,7 @@ public class XylyJSONKhachHang {
                 customer.setTenKhachHang(value.getString("tenKhachHang"));
                 customer.setTenKhac(value.getString("tenKhac"));
                 customer.setDiaChi(value.getString("diaChi"));
-                customer.setDienThoai(value.getInt("dienThoai"));
+                customer.setDienThoai(value.getString("dienThoai"));
                 customer.setMaSoThue(value.getString("maSoThue"));
                 customer.setMaSoDongHo(value.getInt("maSoDongHo"));
                 customer.setMaBangGia(value.getInt("maBangGia"));
@@ -39,14 +38,13 @@ public class XylyJSONKhachHang {
                 customer.setTongChiSo(value.getInt("tongChiSo"));
                 customer.setToaDoX((float) value.getDouble("toaDoX"));
                 customer.setGetToaDoY((float) value.getDouble("toaDoY"));
+                customer.setTrangThai(value.getInt("trangThai"));
                 customer.setGhiChu(value.getString("ghiChu"));
-                customerList.add(customer);
+                list.add(customer);
             }
         } catch (JSONException e) {
             e.printStackTrace();
         }
-
-        //Log.d("area",areaList.get(0).getTinh().toString());
-        return customerList;
+        return list;
     }
 }

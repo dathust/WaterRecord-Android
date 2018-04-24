@@ -1,0 +1,313 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true">
+
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+
+        <android.support.design.widget.CollapsingToolbarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed">
+
+
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/bgToolbar"></android.support.v7.widget.Toolbar>
+
+        </android.support.design.widget.CollapsingToolbarLayout>
+
+
+    </android.support.design.widget.AppBarLayout>
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="10dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="10dp">
+
+                    <ImageView
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:src="@drawable/ic_person_black_36dp" />
+
+                    <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/txtName"
+                            android:layout_width="fill_parent"
+                            android:layout_height="25dp"
+                            android:gravity="center_vertical"
+                            android:text="Ten"
+                            android:textColor="#000"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/txtPhone"
+
+                            android:layout_width="fill_parent"
+                            android:layout_height="25dp"
+                            android:gravity="center_vertical"
+                            android:text="0123" />
+
+                        <TextView
+                            android:id="@+id/txtAddress"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical"
+                            android:text="Đội 1" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="10dp"
+                        android:text="Ngày ghi số:"
+                        android:textColor="#000"
+                        android:textSize="15dp"
+                        android:layout_weight="1"/>
+                    <TextView
+                        android:id="@+id/txtNgayghi"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="10dp"
+                        android:text="20/11/2018"
+                        android:textColor="#000"
+                        android:textSize="15dp"
+                        android:layout_weight="1"/>
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="10dp"
+                        android:text="Tổng chỉ số:"
+                        android:textColor="#000"
+                        android:textSize="15dp"
+                        android:layout_weight="1"/>
+                    <TextView
+                        android:id="@+id/txtTongso"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="10dp"
+                        android:text="200"
+                        android:textColor="#000"
+                        android:textSize="15dp"
+                        android:layout_weight="1"/>
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="10dp"
+                        android:text="Chỉ số tháng trước:"
+                        android:textColor="#000"
+                        android:textSize="15dp"
+                        android:layout_weight="1"/>
+                    <TextView
+                        android:id="@+id/txtChiSoTruoc"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="10dp"
+                        android:text="200"
+                        android:textColor="#000"
+                        android:textSize="15dp"
+                        android:layout_weight="1"/>
+
+
+                </LinearLayout>
+
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <android.support.design.widget.TextInputLayout
+                        android:id="@+id/input_edChiSo"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        android:layout_weight="1"
+                        android:textColorHint="#000">
+
+                        <EditText
+                            android:id="@+id/edchisodongho"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:hint="Nhập chỉ số tháng này"
+                            android:inputType="numberSigned"
+                            android:textColor="#000" />
+
+                    </android.support.design.widget.TextInputLayout>
+
+                    <Button
+                        android:id="@+id/btnNhandienanh"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="right"
+
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="5dp"
+                        android:layout_marginRight="15dp"
+                        android:layout_weight="3"
+
+                        android:background="@color/colorWhite"
+                        android:drawableStart="@drawable/ic_photo_camera_black_36dp"
+                        android:paddingLeft="12dp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:layout_marginTop="15dp"
+
+                    >
+
+                    <Button
+                        android:id="@+id/btnLayVitri"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginRight="20dp"
+                        android:layout_weight="1"
+                        android:background="@color/colorPrimaryDark"
+                        android:text="Lấy vị trí" />
+
+
+                        <TextView
+                            android:id="@+id/txtToadoX"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:padding="15dp"
+                            android:text="Tọa độ X"
+                            android:textColor="#000"
+                            android:layout_weight="1"/>
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:paddingTop="5dp"
+                    android:layout_marginBottom="5dp"
+                    >
+
+                    <Button
+                        android:id="@+id/btnVitri"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginRight="20dp"
+                        android:layout_weight="1"
+                        android:background="@color/colorPrimaryDark"
+                        android:text="Cập nhật vị trí" />
+
+
+                    <TextView
+                        android:id="@+id/txtToadoY"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:padding="15dp"
+                        android:text="Tọa độ Y"
+                        android:textColor="#000"
+                        android:layout_weight="1"/>
+
+                </LinearLayout>
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/input_edGhiChu"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:layout_weight="1"
+                    android:textColorHint="#000">
+
+                    <EditText
+                        android:id="@+id/edghihchu"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:hint="Ghi chú"
+                        android:inputType="text"
+                        android:textColor="#000" />
+
+                </android.support.design.widget.TextInputLayout>
+
+
+                <Button
+                    android:id="@+id/btnXacnhan"
+                    android:padding="15dp"
+                    android:layout_margin="10dp"
+                    android:paddingBottom="5dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Xác nhận"
+                    android:background="@color/bgToolbar"
+                    />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+    </android.support.v4.widget.NestedScrollView>
+
+
+</android.support.design.widget.CoordinatorLayout>
