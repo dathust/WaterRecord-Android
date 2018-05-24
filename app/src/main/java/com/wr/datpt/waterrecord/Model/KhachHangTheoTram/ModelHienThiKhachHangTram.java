@@ -50,8 +50,8 @@ public class ModelHienThiKhachHangTram {
                 customer.setMaBangGia(value.getInt("maBangGia"));
                 customer.setMaTram(value.getInt("maTram"));
                 customer.setTongChiSo(value.getInt("tongChiSo"));
-                customer.setToaDoX((float) value.getDouble("toaDoX"));
-                customer.setGetToaDoY((float) value.getDouble("toaDoY"));
+                customer.setToaDoX( value.getDouble("toaDoX1"));
+                customer.setGetToaDoY(value.getDouble("toaDoY1"));
                 customer.setTrangThai(value.getInt("trangThai"));
                 customer.setGhiChu(value.getString("ghiChu"));
                 customer.setChiSoThangNay(value.getInt("chiSoThangNay"));

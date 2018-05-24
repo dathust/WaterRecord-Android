@@ -15,8 +15,8 @@ public class Customer {
     private int maBangGia;
     private int maTram;
     private int tongChiSo;
-    private float toaDoX;
-    private float getToaDoY;
+    private double toaDoX;
+    private double getToaDoY;
     private int trangThai;
     private String ghiChu;
     private int chiSoThangNay;
@@ -25,7 +25,7 @@ public class Customer {
     public Customer() {
     }
 
-    public Customer(int maKhachHang, String tenKhachHang, String tenKhac, String diaChi, String dienThoai, String maSoThue, int maSoDongHo, int maBangGia, int maTram, int tongChiSo, float toaDoX, float getToaDoY, int trangThai, String ghiChu, int chiSoThangNay, int chiSoThangTruoc) {
+    public Customer(int maKhachHang, String tenKhachHang, String tenKhac, String diaChi, String dienThoai, String maSoThue, int maSoDongHo, int maBangGia, int maTram, int tongChiSo, double toaDoX, double getToaDoY, int trangThai, String ghiChu, int chiSoThangNay, int chiSoThangTruoc) {
         this.maKhachHang = maKhachHang;
         this.tenKhachHang = tenKhachHang;
         this.tenKhac = tenKhac;
@@ -124,19 +124,19 @@ public class Customer {
         this.tongChiSo = tongChiSo;
     }
 
-    public float getToaDoX() {
+    public double getToaDoX() {
         return toaDoX;
     }
 
-    public void setToaDoX(float toaDoX) {
+    public void setToaDoX(double toaDoX) {
         this.toaDoX = toaDoX;
     }
 
-    public float getGetToaDoY() {
+    public double getGetToaDoY() {
         return getToaDoY;
     }
 
-    public void setGetToaDoY(float getToaDoY) {
+    public void setGetToaDoY(double getToaDoY) {
         this.getToaDoY = getToaDoY;
     }
 

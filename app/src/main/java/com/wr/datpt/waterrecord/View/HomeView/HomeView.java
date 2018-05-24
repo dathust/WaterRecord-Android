@@ -37,7 +37,7 @@ import java.util.List;
 
 public class HomeView extends AppCompatActivity implements ViewXuLyMenu{
 
-    public static final String SEVER_NAME = "http://192.168.1.46:8084/WaterRecord/AreaServlet";
+    public static final String SEVER_NAME = "http://192.168.1.46:8080/WaterRecord/AreaServlet";
     Toolbar toolbar;
     TabLayout tabLayout;
     ViewPager viewPager;
